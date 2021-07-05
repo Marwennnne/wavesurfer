@@ -1,5 +1,5 @@
 <div id="waveform"></div>
 <h1>Liste</h1>
-<div *ngFor="let region of entries">
-  <div>{{region[0]}} -- startTime: {{region[1]?.start}}</div>
+<div *ngFor="let region of this.entries; let i= index">
+  <div>{{region[0]}} -- startTime: {{region[1].start}}</div>
 </div>
