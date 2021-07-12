@@ -36,16 +36,13 @@ export class AppComponent implements OnInit {
       this.entries.sort((a,b) => {
          return a[1].start - b[1].start;
       })
-      if(this.entries.length == 2 && this.entries[0][1].end > this.entries[1][1].start ){
-         wavesurfer.regions.list[this.entries[0][0]].onResize(this.entries[1][1].start- this.entries[0][1].end ,'end');
-      } else {
-         for(let i=0;i< this.entries.length - 1; i++){
-            if(this.entries[i][1].end > this.entries[i+1][1].start ) {
-               wavesurfer.regions.list[this.entries[i][0]].onResize(this.entries[i+1][1].start - this.entries[i][1].end  ,'end');
-            }
-           }
+
+      for(let i=0;i< this.entries.length - 1; i++){
+         if(this.entries[i][1].end > this.entries[i+1][1].start ) {
+            wavesurfer.regions.list[this.entries[i][0]].onResize(this.entries[i+1][1].start - this.entries[i][1].end  ,'end');
+         }
       }
-      console.warn(this.entries)
+
     });
 
 
